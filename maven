@@ -1,0 +1,43 @@
+ 1 Execute following to run MAVEN project as it is up to mvn -version
+      2
+      3 yum -y install java-1.8.0-openjdk
+      4 java -version
+      5 JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.e17_6.x86_64
+      6 export JAVA_HOME
+      7 PATH=$PATH:$JAVA_HOME
+      8 source ~/.bash_profile
+      9 yum -y install wget
+     10 sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+     11 sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+     12 yum -y install jenkins
+     13 service jenkins start
+     14 systemctl start jenkins
+     15 systemctl enable jenkins
+     16 sudo yum install maven
+     17 mvn -version
+     18
+     19 Install OpenJDK
+     20
+     21 sudo yum install java-1.8.0-openjdk
+     22 java -version
+     23
+     24
+     25 To download maveen are following command
+     26
+     27 wget https://www-us.apache.org/dist/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz -P /tmp
+     28 sudo tar xf /tmp/apache-maven-3.6.0-bin.tar.gz -C /opt
+     29 sudo ln -s /opt/apache-maven-3.6.0 /opt/maven
+     30
+     31 Setup environment variables
+     32
+     33 sudo nano /etc/profile.d/maven.sh
+     34 export JAVA_HOME=/usr/lib/jvm/jre-openjdk
+     35 export M2_HOME=/opt/maven
+     36 export MAVEN_HOME=/opt/maven
+     37 export PATH=${M2_HOME}/bin:${PATH}
+     38 sudo chmod +x /etc/profile.d/maven.sh
+     39 source /etc/profile.d/maven.sh
+     40
+     41 Verify the installation
+     42
+     43 mvn -version
