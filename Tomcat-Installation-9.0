@@ -1,0 +1,27 @@
+sudo yum install java-1.8.0-openjdk
+java -version
+sudo yum install wget
+wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.0.M10/bin/apache-tomcat-9.0.0.M10.tar.gz
+ls
+gunzip apache-tomcat-9.0.0.M10.tar.gz
+ls
+tar -xvf apache-tomcat-9.0.0.M10.tar
+ls
+mv apache-tomcat-9.0.0.M10 tomcat9
+ls
+vim tomcat9/conf/tomcat-users.xml
+Now delete the content of the tomcat-users.xml file. Copy the below block and paste it in tomcat-users.xml file.
+<?xml version='1.0' encoding='utf-8'?>
+<tomcat-users>
+    <role rolename="manager-gui"/>
+    <role rolename="manager-script"/>
+    <role rolename="manager-jmx"/>
+    <role rolename="manager-jmx"/>
+    <role rolename="admin-gui"/>
+    <role rolename="admin-script"/>
+    <user username="edureka" password="edureka" roles="manager-gui,manager-script,manager-jmx,manager-status,admin-gui,admin-script"/>
+</tomcat-users>
+cd tomcat9/
+./bin/startup.sh
+Now to run Tomcat-Apache paste follwing in browser
+public ip:8080
