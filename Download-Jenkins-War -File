@@ -1,0 +1,10 @@
+wget http://updates.jenkins-ci.org/download/war/2.7.3/jenkins.war
+Deploy Jenkins war File 
+To deploy Jenkins war file that you have downloaded in the previous step, open your browser and access localhost:8080 again. Now click on the Manager App.
+Type the  given credentials in below mentioned format username and password and click OK.
+Username: edureka
+Password: edureka
+Install Suggested Plugins
+cat /home/edureka/.jenkins/secrets/initialAdminPassword(use displayed link to get key this link is example)
+Install Suggested Plugins/select plugins to install (as per requirement)
+Create First Admin User
