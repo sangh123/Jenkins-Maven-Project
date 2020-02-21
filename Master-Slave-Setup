@@ -1,0 +1,37 @@
+Create two machine one is master and one is node you need to install jenkins on master machine no need to install on node machine(slave) 
+Perform following at node(slave machine)
+yum install java* -y
+java -version
+yum install -y openssh-server
+passwd
+After setting password open SSH configuration file and uncomment these parameters and restart the SSH service.
+vim /etc/ssh/sshd_config
+PermitRootLogin yes-(Uncomment it)
+PasswordAuthentication yes-(Uncomment it
+service sshd restart
+Now go to jenkins master machine and check it is taking SSH access properly or not.
+ip r
+After login go to –>Manage Jenkins –> Click on New Node –> and fill you slave detail as shown below.
+Node Name: Slave1
+Select Permenant Agent
+Click on OK
+When we will click on OK button then it will redirect to next file here your slave details one by one. Let’s do it.
+Name: Slave1
+# Of Executor: 2 or 3
+Remote Root Directory: /home/jenkins
+Labels: slave1
+Usage: Use this node as much as possible
+Launch methode: Launch agent via ssh
+Host: here your slave/node machine private ip
+Credentials: Click on add then select jenkins
+pop up window will appear give here your slave machine details as follows
+Username: root
+Passwoprd: Given password
+Click on Add
+Save
+Go to jenkins dashboard you will see slave machine click on it and launch it
+you will get agent connection successful message
+If you get some error message then do the following step 
+CONFIGURE AGENT -> LAUNCH METHOD -> Manually trusted key verification strategy - > SAVE.
+OR
+CONFIGURE AGENT -> LAUNCH METHOD -> No verifying verification strategy - > SAVE.
