@@ -1,0 +1,10 @@
+[bash ~]$ mkdir downloads
+[bash ~]$ cd downloads/
+[bash downloads]$
+[bash downloads]$
+[bash downloads]$ wget http://mirror.candidhosting.com/pub/apache//ant/binaries/apache-ant-1.8.2-bin.tar.gz
+[bash downloads]$ tar -zxvf apache-ant-1.8.2-bin.tar.gz
+[bash downloads]$ mv apache-ant-1.8.2 ant
+[bash downloads]$ ANT_HOME=/home/ATOMANT/ilanh/downloads/ant
+[bash downloads]$ PATH=$PATH:${ANT_HOME}/bin
+[bash downloads]$ ant -f fetch.xml -Ddest=system
